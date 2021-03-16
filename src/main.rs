@@ -1,5 +1,5 @@
-use rand::prelude::*;
 use piston_window::*;
+use rand::prelude::*;
 
 #[derive(PartialEq)]
 enum Direction {
@@ -34,8 +34,8 @@ impl Fruit {
         let mut rng = rand::thread_rng();
         Self {
             position: Position {
-                x: (rng.gen_range(1..19)*10) as f64,
-                y: (rng.gen_range(1..19)*10) as f64,
+                x: (rng.gen_range(1..19) * 10) as f64,
+                y: (rng.gen_range(1..19) * 10) as f64,
             },
         }
     }
@@ -145,8 +145,8 @@ impl Game {
         }
         // fruit
         if self.culebra.collision_with(&self.fruit.position) {
-        	self.fruit = Fruit::new();
-        	self.culebra.add_body();
+            self.fruit = Fruit::new();
+            self.culebra.add_body();
         }
     }
 
