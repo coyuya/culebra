@@ -164,10 +164,10 @@ impl Game {
             Key::S if self.culebra.direction != Direction::Up => {
                 self.culebra.direction = Direction::Down
             }
-            Key::A if self.culebra.direction != Direction::Left => {
+            Key::A if self.culebra.direction != Direction::Right => {
                 self.culebra.direction = Direction::Left
             }
-            Key::D if self.culebra.direction != Direction::Right => {
+            Key::D if self.culebra.direction != Direction::Left => {
                 self.culebra.direction = Direction::Right
             }
             Key::P => self.culebra.add_body(),
@@ -185,7 +185,7 @@ fn main() {
 
     let mut game = Game::new();
 
-    window.set_ups(5);
+    window.set_ups(8);
 
     while let Some(event) = window.next() {
         if !game.running {
@@ -207,6 +207,9 @@ fn main() {
         // update
         if let Some(_args) = event.update_args() {
             game.update();
+            /*for i in 0..game.culebra.body.len() {
+                println!("[{}] x: {} -- y: {}", i, game.culebra.body[i].x, game.culebra.body[i].y);
+            }*/
         }
     }
 }
